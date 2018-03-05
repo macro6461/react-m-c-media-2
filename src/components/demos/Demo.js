@@ -12,7 +12,7 @@ class Demo extends Component {
   render() {
     return (
       <div>
-        <h1></h1>
+        <h1> {this.props.demo.title} </h1>
       </div>
     );
   }

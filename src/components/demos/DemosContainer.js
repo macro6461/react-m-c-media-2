@@ -19,9 +19,15 @@ class DemosContainer extends Component {
   }
 
   render() {
+
+    var demos = this.props.demos.map((demo)=>{
+      return <Demo demo={demo}/>
+    })
+    debugger
+
     return (
       <div>
-        <h1></h1>
+        {demos}
       </div>
     );
   }
@@ -30,6 +36,7 @@ class DemosContainer extends Component {
 const mapStateToProps = (state) => {
 
     return {
+      demos: state.demosReducer.demos,
       imgLoaded: state.dropdownReducer.img_loaded,
       hovered: state.dropdownReducer.hovered
     }
