@@ -1,11 +1,11 @@
 import { createStore, applyMiddleware } from 'redux'
-import dropdownReducer from './reducers/dropdownReducer'
+import rootReducer from './reducers/index'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import thunk from 'redux-thunk'
 
 export function configureStore(){
   return createStore(
-    dropdownReducer,
+    rootReducer,
     composeWithDevTools(applyMiddleware(thunk))
   );
 }

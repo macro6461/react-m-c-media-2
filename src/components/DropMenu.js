@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import '../App.css';
 import {
   BrowserRouter as Router,
   Link,
@@ -8,7 +8,7 @@ import {
   withRouter
 } from 'react-router-dom';
 import { connect } from 'react-redux'
-import { changeDropdown } from './actions/actions'
+import { changeDropdown } from '../actions/actions'
 import Photography from './Photography.js'
 import VideoProduction from './VideoProduction.js'
 
@@ -42,7 +42,7 @@ class DropMenu extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    hovered: state.hovered
+    hovered: state.dropdownReducer.hovered
   }
 }
 

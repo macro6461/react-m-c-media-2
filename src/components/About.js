@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import '../App.css';
 import {
   BrowserRouter as Router,
   Link,
@@ -22,7 +22,7 @@ class About extends Component {
             <div className="about">
             <p>My passion for media began at an early age. My father would sit me down to watch classic films with him, and throughout the film he would point out small things that made the film great, as well as things that made the film suffer.</p>
             <figure>
-                <img className="croakTree" src={require('./images/CroakTree.png')} alt="CroakTree"/>
+                <img className="croakTree" src={require('../images/CroakTree.png')} alt="CroakTree"/>
                 <figcaption>
                   Prospect Park, Brooklyn
                   <br/>
@@ -36,7 +36,7 @@ class About extends Component {
 
             <p>I wanted to create it.</p>
             <figure>
-                  <img className="croakPrivate" src={require('./images/ThroughTheWall.PNG')} alt="CroakWall"/>
+                  <img className="croakPrivate" src={require('../images/ThroughTheWall.PNG')} alt="CroakWall"/>
                   <figcaption>
                     Private Photoshoot, Queens
                     <br/>
@@ -44,10 +44,10 @@ class About extends Component {
                   </figcaption>
             </figure>
 
-<p>When I studied abroad in England, I began to explore video production and post-production. Soon I became fascinated with the software I was using, and the machines that I worked on. I started to become interested in understanding the differences between Mac OS and Windows. When I came back to The States I decided to declare myself a New Communication Media major and picked up a minor in Software Engineering. The marriage of both fields was perfectly suited to my interests.</p>
-<p>By my graduation, I had already developed websites and became proficient in computer networks. I had produced video content as a member of 20 CSTV where I worked in a professional television studio, and as an intern for the SUNY Cortland Communications department.</p>
+            <p>When I studied abroad in England, I began to explore video production and post-production. Soon I became fascinated with the software I was using, and the machines that I worked on. I started to become interested in understanding the differences between Mac OS and Windows. When I came back to The States I decided to declare myself a New Communication Media major and picked up a minor in Software Engineering. The marriage of both fields was perfectly suited to my interests.</p>
+            <p>By my graduation, I had already developed websites and became proficient in computer networks. I had produced video content as a member of 20 CSTV where I worked in a professional television studio, and as an intern for the SUNY Cortland Communications department.</p>
               <figure>
-                <img className="CroakSeals" src={require('./images/CroakSeals.jpg')} alt="Matthew Croak in the Galapagos"/>
+                <img className="CroakSeals" src={require('../images/CroakSeals.jpg')} alt="Matthew Croak in the Galapagos"/>
 
                     <figcaption>
                     Isla Mosquera, The Galápagos Islands
@@ -55,10 +55,10 @@ class About extends Component {
                         December, 2016
                     </figcaption>
                 </figure>
-<p>So what is Matthew Croak Media? It is as much a brand as it is an exposition. I am an ambitious full stack developer with proficiency in multimedia. This site is my portfolio.</p>
+              <p>So what is Matthew Croak Media? It is as much a brand as it is an exposition. I am an ambitious full stack developer with proficiency in multimedia. This site is my portfolio.</p>
 
-</div>
-<p id="web-inquiry-p">☞ For full stack and multimedia inqueries, please leave a message on the <Link to="/contact">Contact</Link> page!</p>
+            </div>
+            <p id="web-inquiry-p">☞ For full stack and multimedia inqueries, please leave a message on the <Link to="/contact">Contact</Link> page!</p>
           </div>
       )
     );
@@ -68,8 +68,8 @@ class About extends Component {
 const mapStateToProps = (state) => {
 
     return {
-      imgLoaded: state.img_loaded,
-      hovered: state.hovered
+      imgLoaded: state.dropdownReducer.img_loaded,
+      hovered: state.dropdownReducer.hovered
     }
 
 }

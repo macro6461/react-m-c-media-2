@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
-import './App.css';
+import '../App.css';
 import About from './About.js'
 import Photography from './Photography.js'
 import VideoProduction from './VideoProduction.js'
 import DropMenu from './DropMenu.js'
-import { connect } from 'react-redux'
-import { changeDropdown } from './actions/actions'
-
 import SoftwareEngineering from './SoftwareEngineering.js'
 import Contact from './Contact.js'
+import { connect } from 'react-redux'
+import { changeDropdown } from '../actions/actions'
+
 import {
   withRouter,
   Link,
@@ -150,8 +150,10 @@ class Nav extends Component {
 }
 
 const mapStateToProps = (state) => {
+
   return {
-    hovered: state.hovered
+
+    hovered: state.dropdownReducer.hovered
 
   }
 }

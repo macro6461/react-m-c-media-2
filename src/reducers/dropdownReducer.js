@@ -4,6 +4,7 @@ export default function dropdownReducer(state={hovered: false, mobileScreen: fal
     case "CHANGE_DROPDOWN":
       return {...state, hovered: action.payload}
     case "DETECT_SCREEN_CHANGE":
+     
       if (window.innerWidth > 500){
         return {...state, mobileScreen: false}
       } else {

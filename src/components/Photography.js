@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import '../App.css';
 import {
   BrowserRouter as Router,
   Link,
@@ -8,14 +8,14 @@ import {
   withRouter,
 } from 'react-router-dom';
 
-class VideoProduction extends Component {
+class Photography extends Component {
   render() {
     return (
       <div>
-        <h1>Video Production</h1>
+        <h1>Photography</h1>
       </div>
     );
   }
 }
 
-export default withRouter(VideoProduction)
+export default withRouter(Photography)

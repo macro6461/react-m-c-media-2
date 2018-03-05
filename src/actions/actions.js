@@ -1,3 +1,5 @@
+import baseURL from '../secrets.js'
+
 export function changeDropdown(data){
   return {
     type: "CHANGE_DROPDOWN",
@@ -13,9 +15,25 @@ export function detectScreenChange(data){
 }
 
 export function detectHamburgerClicked(data){
-   
   return {
     type: "DETECT_HAMBURGER_CLICKED",
+    payload: data
+  }
+}
+
+export function fetchDemos(){
+   debugger
+  return (dispatch) =>{
+    fetch(`${baseURL}/videos`)
+    .then(res => res.json())
+    .then(json => dispatch(fetchDemosRequestResolved(json)))
+  }
+}
+
+export function fetchDemosRequestResolved(data){
+  console.log(data)
+  return {
+    type: "RENDER_DEMOS",
     payload: data
   }
 }
