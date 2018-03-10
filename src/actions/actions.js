@@ -22,7 +22,7 @@ export function detectHamburgerClicked(data){
 }
 
 export function fetchDemos(){
-   debugger
+    
   return (dispatch) =>{
     fetch(`${baseURL}/videos`)
     .then(res => res.json())

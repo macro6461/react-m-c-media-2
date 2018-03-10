@@ -7,8 +7,6 @@ import {
   Switch,
   withRouter
 } from 'react-router-dom';
-import { connect } from 'react-redux'
-import { changeDropdown } from '../actions/actions'
 import Photography from './Photography.js'
 import VideoProduction from './VideoProduction.js'
 
@@ -26,7 +24,7 @@ class DropMenu extends Component {
   }
 
   render() {
-
+    console.log('drop re-rendered')
     return (
       (this.props.hovered === false
         ? null
@@ -40,10 +38,4 @@ class DropMenu extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    hovered: state.dropdownReducer.hovered
-  }
-}
-
-export default withRouter(connect(mapStateToProps, { changeDropdown })(DropMenu))
+export default withRouter(DropMenu)

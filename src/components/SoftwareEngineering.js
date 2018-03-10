@@ -4,9 +4,16 @@ import {
   withRouter,
 } from 'react-router-dom';
 import DemosContainer from './demos/DemosContainer'
+import {connect} from 'react-redux'
 
 class SoftwareEngineering extends Component {
+
+  componentDidMount = () => {
+
+  }
+
   render() {
+    console.log("software rendered")
     return (
       <div className="softwareEngineering">
         <h1>Software Engineering</h1>
@@ -20,4 +27,12 @@ class SoftwareEngineering extends Component {
   }
 }
 
-export default withRouter(SoftwareEngineering)
+const mapStateToProps = (state) => {
+
+    return {
+      demos: state.demosReducer.demos
+    }
+
+}
+
+export default withRouter(connect(mapStateToProps)(SoftwareEngineering))

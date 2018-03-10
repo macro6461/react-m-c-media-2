@@ -15,6 +15,14 @@ body{
     color:  #222428;
 }
 
+.demoVideo{
+  width: 450px;
+  height:450px;
+  display: initial;
+  position: relative;
+  border: solid 1px black;
+}
+
 @media (max-width: 500px) {
   .BannerImg{
     display: none;

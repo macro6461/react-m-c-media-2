@@ -14,16 +14,27 @@ import { connect } from 'react-redux'
 class DemosContainer extends Component {
 
   componentDidMount = () => {
-    debugger
-    this.props.fetchDemos()
+    if (this.props.demos.length !== 7){
+      this.props.fetchDemos()
+    } else {
+
+    }
+  }
+
+  shouldComponentUpdate(){
+
+    if (this.props.demos.length === 7){
+      return false;
+    } else {
+      return true
+    }
   }
 
   render() {
-
+    console.log("demos rendered")
     var demos = this.props.demos.map((demo)=>{
-      return <Demo demo={demo}/>
+      return <Demo key={demo.id} demo={demo}/>
     })
-    debugger
 
     return (
       <div>
@@ -36,9 +47,7 @@ class DemosContainer extends Component {
 const mapStateToProps = (state) => {
 
     return {
-      demos: state.demosReducer.demos,
-      imgLoaded: state.dropdownReducer.img_loaded,
-      hovered: state.dropdownReducer.hovered
+      demos: state.demosReducer.demos
     }
 
 }

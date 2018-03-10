@@ -27,16 +27,14 @@ class Nav extends Component {
         top: 0,
         left: 0,
       },
-        hovered: true
+        hovered: false
     }
 
     componentDidMount(){
-
       if (window.innerWidth >= 500){
         setTimeout(function(){
           navBar = document.getElementById("nav-bar")
           navTop = navBar.getBoundingClientRect().top
-
         }, 100)
         window.addEventListener("scroll", this.stickyNav)
       } else {
@@ -84,29 +82,31 @@ class Nav extends Component {
       }, 100)
     }
 
-    onClick = () =>{
-      this.setState({
-        hovered: !this.state.hovered
-      })
-    }
-
   mouseEnter = () => {
     var drop = document.getElementById("drop-menu")
     if (drop){
       drop.classList = ""
     }
-      this.props.changeDropdown(true)
+      this.setState({
+        hovered: true
+      })
       this.stickyNav()
-
-
     }
 
   mouseLeave = () => {
-    var changeDrop = this.props.changeDropdown
+
     this.removeDropClass()
+    var changeState = this.changeState
+    var hovered = this.state.hovered
     setTimeout(function(){
-      changeDrop(false)
+      changeState()
     }, 1000)
+  }
+
+  changeState = () => {
+    this.setState({
+      hovered: !this.state.hovered
+    })
   }
 
   removeDropClass = () =>{
@@ -117,12 +117,13 @@ class Nav extends Component {
   }
 
   render() {
-
+    console.log("nav re-rendered")
     return (
       <div>
       <div className="navDiv">
       <div id="nav-bar">
         <ul>
+
         <Link className="link" to="/" style={{marginLeft: 8 + '%'}} ><li>About</li></Link>
 
           <Link className="link" to="/software-engineering"><li>Software Engineering</li></Link>
@@ -133,30 +134,22 @@ class Nav extends Component {
 
         </ul>
         </div>
-        {this.props.hovered === false
+        {this.state.hovered === false
           ? null
-          : <DropMenu hovered={this.props.hovered} onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave} parentStyle={this.state.styles}/>
+          : <DropMenu hovered={this.state.hovered} onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave} parentStyle={this.state.styles}/>
         }
           </div>
-          <Route exact path="/" component={()=>{return(<About/>)}} />
-          <Route exact path="/software-engineering" component={()=>{return(<SoftwareEngineering/>)}} />
-          <Route exact path="/contact" component={()=>{return(<Contact/>)}} />
-          <Route exact path="/photography" component={()=>{return(<Photography/>)}} />
-          <Route exact path="/video-production" component={()=>{return(<VideoProduction/>)}} />
+          <Route exact path="/" component={About} />
+          <Route exact path="/software-engineering" component={SoftwareEngineering} />
+          <Route exact path="/contact" component={Contact} />
+          <Route exact path="/photography" component={Photography} />
+          <Route exact path="/video-production" component={VideoProduction} />
+
         </div>
 
     );
   }
 }
 
-const mapStateToProps = (state) => {
 
-  return {
-
-    hovered: state.dropdownReducer.hovered
-
-  }
-}
-
-
-export default withRouter(connect(mapStateToProps, { changeDropdown })(Nav))
+export default withRouter(Nav)
