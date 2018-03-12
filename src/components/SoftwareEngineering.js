@@ -5,11 +5,14 @@ import {
 } from 'react-router-dom';
 import DemosContainer from './demos/DemosContainer'
 import {connect} from 'react-redux'
+import {fetchDemos} from '../actions/actions.js'
+
 
 class SoftwareEngineering extends Component {
 
   componentDidMount = () => {
-
+    debugger
+    this.props.fetchDemos()
   }
 
   render() {
@@ -19,7 +22,7 @@ class SoftwareEngineering extends Component {
         <h1>Software Engineering</h1>
         <h5>React, Redux, JavaScript, jQuery, Ruby on Rails, Ruby, Python, HTML, CSS</h5>
         <p>This site was made using React/Redux with cooperation with a Ruby on Rails API. </p>
-        <DemosContainer />
+        <DemosContainer videos={this.props.demos}/>
       </div>
     );
   }
@@ -33,4 +36,4 @@ const mapStateToProps = (state) => {
 
 }
 
-export default withRouter(connect(mapStateToProps)(SoftwareEngineering))
+export default withRouter(connect(mapStateToProps, {fetchDemos})(SoftwareEngineering))

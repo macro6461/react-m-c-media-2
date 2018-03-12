@@ -8,22 +8,25 @@ import {
   Switch,
   withRouter,
 } from 'react-router-dom';
-import {fetchDemos} from '../../actions/actions.js'
-import { connect } from 'react-redux'
+
 
 class DemosContainer extends Component {
 
-  componentDidMount = () => {
-    if (this.props.demos.length !== 7){
-      this.props.fetchDemos()
-    } else {
+  state = {
+    demos: [],
+    youtube_videos: []
+  }
 
-    }
+  componentDidMount = () =>{
+    debugger
+    this.setState({
+      demos: this.props.videos,
+      youtube_videos: this.props.youtubeVideos
+    })
   }
 
   shouldComponentUpdate(){
-
-    if (this.props.demos.length === 7){
+    if (this.props.videos.length === 7){
       return false;
     } else {
       return true
@@ -31,10 +34,15 @@ class DemosContainer extends Component {
   }
 
   render() {
-    console.log("demos rendered")
-    var demos = this.props.demos.map((demo)=>{
-      return <Demo key={demo.id} demo={demo}/>
-    })
+      console.log(this.props)
+    if (this.props.videos.length === 0){
+      console.log("poop")
+    } else {
+      var demos = this.props.videos.map((demo)=>{
+        return <Demo key={demo.id} demo={demo}/>
+      })
+    }
+
 
     return (
       <div>
@@ -44,12 +52,12 @@ class DemosContainer extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+// const mapStateToProps = (state) => {
+//
+//     return {
+//       demos: state.demosReducer.demos
+//     }
+//
+// }
 
-    return {
-      demos: state.demosReducer.demos
-    }
-
-}
-
-export default withRouter(connect(mapStateToProps, { fetchDemos })(DemosContainer))
+export default withRouter(DemosContainer)

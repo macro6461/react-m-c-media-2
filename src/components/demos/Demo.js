@@ -27,6 +27,8 @@ class Demo extends Component {
       return <p>GitHub Frontend Repo: No repo</p>
     } else if (this.props.demo.frontend_url === "Private"){
       return <p>GitHub Frontend Repo: Private</p>
+    } else if (!this.props.demo.backend_url){
+      return null
     } else {
       return <p>GitHub Frontend Repo: <a href={this.props.demo.frontend_url}>{this.props.demo.frontend_url}</a></p>
     }
@@ -37,6 +39,8 @@ class Demo extends Component {
       return <p>GitHub Backend Repo: No repo</p>
     } else if (this.props.demo.backend_url === "Private"){
       return <p>GitHub Backend Repo: Private</p>
+    } else if (!this.props.demo.backend_url){
+      return null
     } else {
       return <p>GitHub Backend Repo: <a href={this.props.demo.backend_url}>{this.props.demo.backend_url}</a></p>
     }
@@ -45,15 +49,29 @@ class Demo extends Component {
   checkLiveUrl = () => {
       if (this.props.demo.live_url === null){
         return <p>Site: No Site</p>
-      } else {
+      } else if (this.props.demo.live_url) {
         return <p>Site: <a href={this.props.demo.live_url}>{this.props.demo.live_url}</a></p>
+      } else if (this.props.demo.website){
+        return <p>Site: <a href={this.props.demo.website}>{this.props.demo.website}</a></p>
+      } else {
+        return null
       }
   }
+
+  checkLanguages = () => {
+    if (this.props.demo.languages){
+      return <p>Languages: {this.props.demo.languages}</p>
+    } else {
+      return null
+    }
+  }
+
 
   render() {
     var front = this.checkFrontendRepos()
     var back = this.checkBackendRepos()
     var live = this.checkLiveUrl()
+    var languages = this.checkLanguages()
     var border = 'solid 1px black'
 
      console.log("demo rendered")
@@ -61,14 +79,15 @@ class Demo extends Component {
       <div style={{display: 'inline-block', margin: 3 + '%'}}>
         <h2> {this.props.demo.title} </h2>
         <div style={{float: 'left', width: 50 + "%", height: 20 + '%', fontSize: 1.2 + 'vw', margin: 1 + '%', verticalAlign: 'middle', textAlign: 'left'}}>
-        <p>Languages: {this.props.demo.languages}</p>
+        <p>Date: {this.props.demo.date}</p>
+        {languages}
         {front}
         {back}
         {live}
         <p style={{textAlign: 'justify', textJustify: 'inter-word'}}>{this.props.demo.description}</p>
         </div>
           <Iframe url={this.props.demo.url} width="45%"
-            height="400px;"
+            height="400px"
             id={(this.props.demo.id).toString()}
             display="initial"
             position="relative"
