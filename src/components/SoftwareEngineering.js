@@ -3,6 +3,7 @@ import '../App.css';
 import {
   withRouter,
 } from 'react-router-dom';
+import Loader from './Loader.js'
 import DemosContainer from './demos/DemosContainer'
 import {connect} from 'react-redux'
 import {fetchDemos} from '../actions/actions.js'
@@ -21,8 +22,11 @@ class SoftwareEngineering extends Component {
       <div className="softwareEngineering">
         <h1>Software Engineering</h1>
         <h5>React, Redux, JavaScript, jQuery, Ruby on Rails, Ruby, Python, HTML, CSS</h5>
-        <p>This site was made using React/Redux with cooperation with a Ruby on Rails API. </p>
-        <DemosContainer videos={this.props.demos}/>
+        <p>This site was made using React/Redux, JavaScript and PHP in cooperation with my own Ruby on Rails API. </p>
+        {this.props.demos.length <=6
+          ? <Loader/>
+          :<DemosContainer videos={this.props.demos}/>
+        }
       </div>
     );
   }
