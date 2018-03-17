@@ -19,6 +19,7 @@ import {browserLocation} from 'browser-location'
 var navBar;
 var navTop;
 var dropMenu;
+var setTimeoutVar;
 
 class Nav extends Component {
 
@@ -85,6 +86,7 @@ class Nav extends Component {
   mouseEnter = () => {
     var drop = document.getElementById("drop-menu")
     if (drop){
+      clearTimeout(setTimeoutVar);
       drop.classList = ""
     }
       this.setState({
@@ -94,11 +96,10 @@ class Nav extends Component {
     }
 
   mouseLeave = () => {
-
     this.removeDropClass()
     var changeState = this.changeState
     var hovered = this.state.hovered
-    setTimeout(function(){
+    setTimeoutVar = setTimeout(function(){
       changeState()
     }, 1000)
   }
