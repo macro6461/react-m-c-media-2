@@ -25,18 +25,20 @@ class Nav extends Component {
 
   state ={
       styles: {
-        top: 0,
+        bottom: 0,
         left: 0,
       },
         hovered: false
     }
 
     componentDidMount(){
+      var changeStyle = this.changeStyle
       if (window.innerWidth >= 500){
         setTimeout(function(){
           navBar = document.getElementById("nav-bar")
           navTop = navBar.getBoundingClientRect().top
-        }, 100)
+          changeStyle()
+        }, 1000)
         window.addEventListener("scroll", this.stickyNav)
       } else {
         console.log("don't render")
@@ -44,12 +46,13 @@ class Nav extends Component {
     }
 
     changeStyle = () =>{
+      console.log("style changed")
       var drop = document.getElementById("media")
       var bottom = drop.getBoundingClientRect().bottom
       var left = drop.getBoundingClientRect().left
         this.setState({
           styles: {
-            top: bottom,
+            bottom: bottom,
             left: left
           }
         })
@@ -81,6 +84,7 @@ class Nav extends Component {
             }
         }
       }, 100)
+      this.changeStyle()
     }
 
   mouseEnter = () => {
@@ -93,6 +97,18 @@ class Nav extends Component {
         hovered: true
       })
       this.stickyNav()
+    }
+
+    checkMouseLeave = (e) => {
+      var drop = e.target
+      debugger
+      if (e.pageX > (drop.offsetLeft + drop.offsetWidth)){
+        this.mouseLeave()
+      } else if (e.pageX < drop.offsetLeft) {
+        this.mouseLeave()
+      } else if (e.pageY < drop.getBoundingClientRect().top){
+        this.mouseLeave()
+      }
     }
 
   mouseLeave = () => {
@@ -129,7 +145,7 @@ class Nav extends Component {
 
           <Link className="link" to="/software-engineering"><li>Software Engineering</li></Link>
 
-          <Link id="media" className="link" to="#" onMouseEnter={this.mouseEnter} ><li>Multimedia</li></Link>
+          <Link id="media" className="link" to="#" onMouseEnter={this.mouseEnter} onMouseLeave={this.checkMouseLeave} ><li>Multimedia</li></Link>
 
           <Link className="link" to="/contact" ><li>Contact</li></Link>
 

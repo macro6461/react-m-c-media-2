@@ -447,8 +447,6 @@ label{
   list-style: none;
   display: block;
   position: absolute;
-  right: 25%;
-  top: 100%;
   width: 12%;
   color: white;
   animation: slide-in-drop 1s;

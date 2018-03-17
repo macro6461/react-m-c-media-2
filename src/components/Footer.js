@@ -35,13 +35,13 @@ class Footer extends Component {
             icons[1].classList.add("fadeIn")
           }, 200)
           setTimeout(function(){
-            icons[2].classList.add("fadeIn")
+            medium.classList.add("fadeIn")
           }, 300)
           setTimeout(function(){
-            icons[3].classList.add("fadeIn")
+            icons[2].classList.add("fadeIn")
           }, 400)
           setTimeout(function(){
-            medium.classList.add("fadeIn")
+            icons[3].classList.add("fadeIn")
           }, 500)
           setTimeout(function(){
             icons[4].classList.add("fadeIn")
@@ -71,11 +71,11 @@ class Footer extends Component {
           </ul>
             <div className="footerList">
             <h3 id="connect">Connect</h3>
-              <a href="https://www.instagram.com/m_c_media/"><img className="footer_social" src={require('../images/insta-footer.png')} alt="Footer Insta"/></a>
               <a href="https://www.linkedin.com/in/matthew-croak-18467483?trk=nav_responsive_tab_profile"><img className="footer_social" src={require('../images/linked_in_white.png')} alt="Footer LinkedIn"/></a>
               <a href="https://github.com/macro6461"><img className="footer_social" src={require('../images/github-footer.png')} alt="Footer Github"/></a>
-              <a href="https://www.youtube.com/channel/UCt2tt8VVuYUDYzr09uZK8-g"><img className="footer_social" src={require('../images/youtube-footer.png')} alt="Footer Youtbe"/></a>
               <a href="https://medium.com/@mattcroak718"><img className="footer_social_medium" src={require('../images/medium-footer.png')} alt="Footer Medium"/></a>
+                <a href="https://www.instagram.com/m_c_media/"><img className="footer_social" src={require('../images/insta-footer.png')} alt="Footer Insta"/></a>
+              <a href="https://www.youtube.com/channel/UCt2tt8VVuYUDYzr09uZK8-g"><img className="footer_social" src={require('../images/youtube-footer.png')} alt="Footer Youtbe"/></a>
               <Link to="/contact"><img className="footer_social" src={require('../images/footer-mail.png')} alt="Footer Mail"/></Link>
 
             </div>
