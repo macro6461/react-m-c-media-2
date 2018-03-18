@@ -61,8 +61,9 @@ body{
     width: 75% !important;
   }
   #web-inquiry-p{
-    font-size: 3vw !important;
+    font-size: 20px !important;
   }
+
   .inquery-form{
     margin-top: 5% !important;
     padding-left: 0% !important;
@@ -445,12 +446,11 @@ label{
   padding-left: 1% !important;
   font-size: 1.2vw;
   list-style: none;
-  display: block;
-  position: absolute;
   width: 12%;
   color: white;
   animation: slide-in-drop 1s;
-  transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+  /* transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1); */
+  opacity: 0;
 }
 
 #drop-menu.reverse{
@@ -659,9 +659,8 @@ textarea{
 }
 
 
-#youtube-channel a {
+.media-anchor{
   color: #222428;
-
 }
 
 #resume-download{
@@ -671,7 +670,7 @@ textarea{
   color: white;
   text-decoration: none;
   border-radius: 10px;
-  background-color: #800000;
+  background-color: #938994;
   padding: 1%;
   padding-bottom: 2%;
   margin-bottom: 10%;
@@ -681,6 +680,8 @@ textarea{
   transform: rotate(90deg);
   transition: 0.2s ease-in;
   animation: resume-icon 0.5s;
+  -webkit-text-stroke-width: 0.2px;
+   -webkit-text-stroke-color: black;
 }
 
 #resume-download:hover{
@@ -737,7 +738,11 @@ textarea{
 
 #web-inquiry-p{
   padding: 2%;
-  font-size: 1.3vw;
+  font-size: 20px;
+}
+
+.slideshow-img{
+  width: 60%;
 }
 
 #web-inquiry-p a{
@@ -945,7 +950,7 @@ a.foot-link{
 
 @keyframes slide-in-drop {
   0%{
-    opacity: 1;
+    opacity: 0;
     transform-origin: top left;
     transform: scaleX(0.01) scaleY(0);
   } 50%{
@@ -979,7 +984,10 @@ a.foot-link{
   } 50%{
     transform-origin: top left;
       transform: scaleX(0.01) scaleY(1);
-  } 100%{
+  }  90%{
+    opacity: 1;
+  }100%{
+    opacity: 0;
     transform-origin: top left;
     transform: scaleX(0.01) scaleY(0);
   }
@@ -993,7 +1001,9 @@ a.foot-link{
   } 50%{
     transform-origin: top left;
       transform: scaleX(0.01) scaleY(1);
-  } 100%{
+  } 90%{
+    opacity: 1;
+  }100%{
     transform-origin: top left;
     transform: scaleX(0.01) scaleY(0);
   }

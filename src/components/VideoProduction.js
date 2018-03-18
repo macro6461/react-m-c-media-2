@@ -38,7 +38,8 @@ class VideoProduction extends Component {
           ? <Loader/>
           :<DemosContainer videos={this.props.youtubeVideos}/>
         }
-        <p id="youtube-channel">Head over to my <a href="https://www.youtube.com/channel/UCt2tt8VVuYUDYzr09uZK8-g?view_as=subscriber">YouTube</a> channel for a more extensive video portfolio!</p>
+        <p>Head over to my <a class="media-anchor" href="https://www.youtube.com/channel/UCt2tt8VVuYUDYzr09uZK8-g?view_as=subscriber">YouTube</a> channel for a more extensive video portfolio!</p>
+        <p id="web-inquiry-p">☞ For full stack and multimedia inqueries, please leave a message on the <Link to="/contact">Contact</Link> page!</p>
       </div>
     );
   }

@@ -58,6 +58,7 @@ class About extends Component {
               <p>So what is Matthew Croak Media? It is as much a brand as it is an exposition. I am an ambitious full stack developer with proficiency in multimedia. This site is my portfolio.</p>
 
             </div>
+            <p >Please see my <a class="media-anchor" href="https://www.linkedin.com/in/matthew-croak-18467483?trk=nav_responsive_tab_profile">LinkedIn profile</a> for a more extensive software engineering profile!</p>
             <p id="web-inquiry-p">☞ For full stack and multimedia inqueries, please leave a message on the <Link to="/contact">Contact</Link> page!</p>
           </div>
       )

@@ -48,14 +48,16 @@ class Nav extends Component {
     changeStyle = () =>{
       console.log("style changed")
       var drop = document.getElementById("media")
-      var bottom = drop.getBoundingClientRect().bottom
-      var left = drop.getBoundingClientRect().left
-        this.setState({
-          styles: {
-            bottom: bottom,
-            left: left
-          }
-        })
+      if (drop){
+        var bottom = drop.getBoundingClientRect().bottom
+        var left = drop.getBoundingClientRect().left
+          this.setState({
+            styles: {
+              bottom: bottom,
+              left: left
+            }
+          })
+      }
     }
 
     stickyNav = () => {
@@ -73,15 +75,18 @@ class Nav extends Component {
               drop.style.top = `${navBar.getBoundingClientRect().bottom}px`
             }
           } else {
-            navBar.classList.remove("sticky")
-            navBar.classList.add("normal")
-            navBar.parentElement.nextElementSibling.style.marginTop = "auto"
-            if (document.getElementById("drop-menu")){
-              var drop = document.getElementById("drop-menu")
-              drop.style.position = "absolute"
-              drop.style.right = "25%"
-              drop.style.top = "100%"
+            if (navBar){
+              navBar.classList.remove("sticky")
+              navBar.classList.add("normal")
+              navBar.parentElement.nextElementSibling.style.marginTop = "auto"
+              if (document.getElementById("drop-menu")){
+                var drop = document.getElementById("drop-menu")
+                drop.style.position = "absolute"
+                drop.style.right = "25%"
+                drop.style.top = "100%"
+              }
             }
+
         }
       }, 100)
       this.changeStyle()

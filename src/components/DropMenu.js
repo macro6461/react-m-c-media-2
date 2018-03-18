@@ -17,26 +17,24 @@ class DropMenu extends Component {
   }
 
   componentDidMount = () => {
-
     debugger
     window.addEventListener("scroll", this.checkFixed)
     this.setState({
       hovered: this.props.hovered
     })
+    setTimeout(function(){
+      document.getElementById("drop-menu").style.opacity = 1
+    }, 100)
+
   }
 
   render() {
-    const style = {
-      position: 'absolute',
-      top: `${this.props.parentStyle.bottom}px`,
-      left: `${this.props.parentStyle.left}px`
-    }
     debugger
     console.log('drop re-rendered')
     return (
       (this.props.hovered === false
         ? null
-        : <ul id="drop-menu" onMouseEnter={this.props.onMouseEnter} onMouseLeave={this.props.onMouseLeave} style={style}>
+        : <ul id="drop-menu" onMouseEnter={this.props.onMouseEnter} onMouseLeave={this.props.onMouseLeave} style={{position: 'absolute', top: this.props.parentStyle.bottom + 'px', left: this.props.parentStyle.left + 'px'}}>
            <Link className="drop-link" to="/photography"><li>Photography</li></Link>
            <Link className="drop-link" to="/video-production"><li>Video Production</li></Link>
           </ul>

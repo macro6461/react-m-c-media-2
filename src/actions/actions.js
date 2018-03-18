@@ -30,7 +30,7 @@ export function fetchDemos(){
 }
 
 export function fetchDemosRequestResolved(data){
-  console.log(data)
+
   return {
     type: "RENDER_DEMOS",
     payload: data
@@ -40,7 +40,6 @@ export function fetchDemosRequestResolved(data){
 export function fetchYoutubeVideos(){
   return (dispatch) =>{
     fetch(`${baseURL}/youtube_videos`)
-    fetch('http://localhost:3000/youtube_videos')
     .then(res => res.json())
     .then(json => dispatch(fetchYoutubeRequestResolved(json)))
   }
