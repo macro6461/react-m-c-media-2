@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Iframe from 'react-iframe'
+import ReactPlayer from 'react-player'
 import '../../App.css';
 import {
   BrowserRouter as Router,
@@ -10,23 +10,54 @@ import {
 } from 'react-router-dom';
 import { connect } from 'react-redux'
 import Loader from '../Loader.js'
+import $ from 'jquery';
 
+
+var checkAgain;
 var tag;
 var player;
 var firstScriptTag;
 
+
 class Demo extends Component {
 
-  // componentDidMount = () => {
-  //   tag = document.createElement('script');
-  //       tag.src = "https://www.youtube.com/iframe_api";
-  //       firstScriptTag = document.getElementsByTagName('script')[0];
-  //       firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-  // }
+state = {
+  loaded: false
+}
+  componentDidMount = () => {
+
+  
+    tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+
+  }
+
+checkIframeLoaded = () => {
+  debugger
+  $.ajax({
+    url: this.props.demo.url,
+    success: this.successState(),
+    error: this.errorState()
+  });
+}
+
+  successState = () => {
+    debugger
+    console.log($('#addr').val())
+    this.setState({
+      loaded: true
+    })
+  }
+
+  errorState = () => {
+    console.log($('#addr').val())
+  }
 
   shouldComponentUpdate() {
     if (this.props.demos.length === 7){
-
       return false
     } else {
       return true
@@ -77,27 +108,17 @@ class Demo extends Component {
     }
   }
 
+  checkAgain = () => {
 
-    // onYouTubePlayerAPIReady = () => {
-    //   debugger
-    //     player = new YT.Player('player', {
-    //       height: '390',
-    //       width: '640',
-    //       videoId: 'M7lc1UVf-VE',
-    //       events: {
-    //         'onReady': this.onPlayerReady,
-    //         'onStateChange': this.onPlayerStateChange
-    //       }
-    //     });
-    //   }
-    //
-    // onPlayerReady = (event) => {
-    //   event.target.playVideo();
-    // }
+    if (this.state.loaded === false){
+      this.checkIframeLoaded()
+    }
+  }
 
 
 
   render() {
+    var id = (this.props.demo.id).toString()
     var front = this.checkFrontendRepos()
     var back = this.checkBackendRepos()
     var live = this.checkLiveUrl()
@@ -108,14 +129,18 @@ class Demo extends Component {
     return (
       <div style={{display: 'inline-block', margin: 3 + '%'}}>
         <h2> {this.props.demo.title} </h2>
-          <Iframe className="video" url={this.props.demo.url} width="45%"
-            height="400px"
-            id={(this.props.demo.id).toString()}
-            display="initial"
-            position="relative"
-            border="solid 1px black"
-            styles={{marginTop: 2 + '%', border: 'solid 1px black'}}
-            allowFullScreen/>
+        {this.state.loaded === false
+          ? <div>Loading</div>
+          : <div>Done loading</div>
+        }
+        <ReactPlayer onReady={this.successState} className="video" url={this.props.demo.url} width="45%"
+          height="400px"
+          id={id}
+          display="initial"
+          position="relative"
+          border="solid 1px black"
+          styles={{marginTop: 2 + '%', border: 'solid 1px black'}}
+          allowFullScreen/>
         <div className="text-for-demo">
         <p>Date: {this.props.demo.date}</p>
         {languages}

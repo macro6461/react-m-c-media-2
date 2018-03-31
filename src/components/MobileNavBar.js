@@ -25,7 +25,7 @@ class MobileNavBar extends Component {
   }
 
   handleHamburgerClick = () => {
-    console.log(this.props)
+
 
     this.props.detectHamburgerClicked(!this.props.hamburgerClicked)
   }

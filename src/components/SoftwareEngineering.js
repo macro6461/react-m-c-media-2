@@ -14,12 +14,12 @@ import {fetchDemos} from '../actions/actions.js'
 class SoftwareEngineering extends Component {
 
   componentDidMount = () => {
-    debugger
+
     this.props.fetchDemos()
   }
 
   render() {
-    console.log("software rendered")
+  
     return (
       <div className="softwareEngineering">
         <h1>Software Engineering</h1>

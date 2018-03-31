@@ -43,7 +43,7 @@ class App extends Component {
   }
 
   render() {
-    console.log("app rendered")
+    
     return (
       <div className="App">
       <img className="BannerImg" src={require('./images/BWParkBanner.jpg')} alt="BannerImg"/>
@@ -55,7 +55,7 @@ class App extends Component {
             ? null
             : <MobileNavMenu handleHamburgerClick={this.props.detectHamburgerClick}/>
         }
-      
+
       </div>
     );
   }

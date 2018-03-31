@@ -17,7 +17,7 @@ class DropMenu extends Component {
   }
 
   componentDidMount = () => {
-    debugger
+
     window.addEventListener("scroll", this.checkFixed)
     this.setState({
       hovered: this.props.hovered
@@ -29,8 +29,7 @@ class DropMenu extends Component {
   }
 
   render() {
-    debugger
-    console.log('drop re-rendered')
+  
     return (
       (this.props.hovered === false
         ? null

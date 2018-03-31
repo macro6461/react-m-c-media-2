@@ -46,7 +46,7 @@ export function fetchYoutubeVideos(){
 }
 
 export function fetchYoutubeRequestResolved(data){
-  debugger
+
   return {
     type: "RENDER_YOUTUBE_VIDEOS",
     payload: data

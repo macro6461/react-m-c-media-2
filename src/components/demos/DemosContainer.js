@@ -18,7 +18,7 @@ class DemosContainer extends Component {
   }
 
   componentDidMount = () =>{
-    debugger
+
     this.setState({
       demos: this.props.videos,
       youtube_videos: this.props.youtubeVideos
@@ -34,10 +34,8 @@ class DemosContainer extends Component {
   }
 
   render() {
-      console.log(this.props)
-    if (this.props.videos.length === 0){
-      console.log("poop")
-    } else {
+
+    if (this.props.videos.length > 0){
       var demos = this.props.videos.map((demo)=>{
         return <Demo key={demo.id} demo={demo}/>
       })

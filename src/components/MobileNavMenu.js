@@ -46,7 +46,7 @@ class MobileNavMenu extends Component {
   slideOutMenuAndX = () => {
     var clicked = this.props.detectHamburgerClicked
     var hamburger = this.props.hamburgerClicked
-    console.log(this.props)
+
     xButton.classList.add("reverse")
     setTimeout(function(){
       menu.classList.add("reverse")
@@ -54,7 +54,7 @@ class MobileNavMenu extends Component {
     setTimeout(function(){
 
       clicked(!hamburger)
-      console.log(hamburger)
+  
     }, 1000)
 
   }

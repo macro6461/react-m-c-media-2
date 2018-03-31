@@ -4,7 +4,7 @@ export default function demosReducer(state={demos: [], youtube_videos: []}, acti
     case "RENDER_DEMOS":
       return {...state, demos: action.payload}
     case "RENDER_YOUTUBE_VIDEOS":
-    debugger
+     
       return {...state, youtube_videos: action.payload}
     default:
       return state

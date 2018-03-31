@@ -10,27 +10,7 @@ import {
 class Contact extends Component {
 
   componentDidMount = () => {
-    // var $form = $("#inquery-form");
-    // var formData = $form.serialize();
-    //
-    // $form.submit(function (event) {
-    //     // Stop the browser from submitting the form.
-    //     event.preventDefault();
-    //
-    //     /
-    //     $.ajax({
-    //         type: 'POST',
-    //         url: $form.attr('action'),
-    //         data: formData,
-    //         success: function (response) {
-    //             console.dir(response);
-    //         },
-    //         fail: function (err) {
-    //             console.dir(err);
-    //         }
-    //     });
-    //
-    // });
+  
   }
 
   render() {

@@ -40,13 +40,10 @@ class Nav extends Component {
           changeStyle()
         }, 1000)
         window.addEventListener("scroll", this.stickyNav)
-      } else {
-        console.log("don't render")
       }
     }
 
     changeStyle = () =>{
-      console.log("style changed")
       var drop = document.getElementById("media")
       if (drop){
         var bottom = drop.getBoundingClientRect().bottom
@@ -106,7 +103,7 @@ class Nav extends Component {
 
     checkMouseLeave = (e) => {
       var drop = e.target
-      debugger
+
       if (e.pageX > (drop.offsetLeft + drop.offsetWidth)){
         this.mouseLeave()
       } else if (e.pageX < drop.offsetLeft) {
@@ -139,7 +136,7 @@ class Nav extends Component {
   }
 
   render() {
-    console.log("nav re-rendered")
+
     return (
       <div>
       <div className="navDiv">
