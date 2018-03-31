@@ -26,12 +26,7 @@ state = {
 }
   componentDidMount = () => {
 
-  
-    tag = document.createElement('script');
-        tag.src = "https://www.youtube.com/iframe_api";
-        firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
+    console.log(this.state.loaded)
 
   }
 
@@ -45,24 +40,17 @@ checkIframeLoaded = () => {
 }
 
   successState = () => {
-    debugger
-    console.log($('#addr').val())
+    console.log(this.state)
     this.setState({
       loaded: true
     })
+    debugger
   }
 
   errorState = () => {
     console.log($('#addr').val())
   }
 
-  shouldComponentUpdate() {
-    if (this.props.demos.length === 7){
-      return false
-    } else {
-      return true
-    }
-  }
 
   checkFrontendRepos = () => {
     if (this.props.demo.frontend_url === null){
@@ -130,16 +118,16 @@ checkIframeLoaded = () => {
       <div style={{display: 'inline-block', margin: 3 + '%'}}>
         <h2> {this.props.demo.title} </h2>
         {this.state.loaded === false
-          ? <div>Loading</div>
-          : <div>Done loading</div>
+          ? <Loader />
+          : null
         }
-        <ReactPlayer onReady={this.successState} className="video" url={this.props.demo.url} width="45%"
-          height="400px"
+        <ReactPlayer className="video" onReady={this.successState}
+        url={this.props.demo.url}
+        controls="true"
           id={id}
           display="initial"
           position="relative"
-          border="solid 1px black"
-          styles={{marginTop: 2 + '%', border: 'solid 1px black'}}
+          style={{display: 'block', margin: 'auto'}}
           allowFullScreen/>
         <div className="text-for-demo">
         <p>Date: {this.props.demo.date}</p>

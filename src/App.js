@@ -43,7 +43,7 @@ class App extends Component {
   }
 
   render() {
-    
+
     return (
       <div className="App">
       <img className="BannerImg" src={require('./images/BWParkBanner.jpg')} alt="BannerImg"/>

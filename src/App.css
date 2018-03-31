@@ -33,6 +33,7 @@ body{
   .video{
     width: 90% !important;
     height: 200px !important;
+    float: right;
   }
   .BannerImg{
     display: none;
@@ -592,11 +593,14 @@ textarea{
 }
 
 .loader {
+  z-index: -100;
+  position: absolute;
+  left: 45%;
   width: 150px;
   height: 150px;
   line-height: 150px;
   margin: 100px auto;
-  position: relative;
+
   box-sizing: border-box;
   text-align: center;
   z-index: 0;
@@ -620,13 +624,37 @@ textarea{
 }
 
 .text-for-demo{
-  float: left;
-  width: 50%;
+  display: block;
+  width: 60%;
   height: 20%;
-  font-size: 1.2vw;
-  margin: 1%;
+  font-size: 15px;
+  margin: auto;
   vertical-align: middle;
   text-align: left;
+}
+
+.video{
+  width: 60% !important;
+  display: block;
+  margin: auto;
+  height: 400px !important;
+  margin-bottom: 2% !important;
+  transition-duration: 1s;
+}
+
+@media (max-width: 1020px){
+  .video{
+    width: 80% !important;
+    display: block;
+    margin: auto;
+  }
+}
+
+@media (max-width: 500px){
+  .video{
+    width: 100% !important;
+    height: 300px !important;
+  }
 }
 
 .video.loaded{
