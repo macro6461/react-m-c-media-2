@@ -31,7 +31,7 @@ state = {
   }
 
 checkIframeLoaded = () => {
-  debugger
+
   $.ajax({
     url: this.props.demo.url,
     success: this.successState(),
@@ -44,7 +44,7 @@ checkIframeLoaded = () => {
     this.setState({
       loaded: true
     })
-    debugger
+
   }
 
   errorState = () => {

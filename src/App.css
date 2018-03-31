@@ -121,21 +121,33 @@ body{
     z-index: 1000 !important;
     display: block !important;
     margin: auto !important;
-    font-size: 4vw !important;
+    margin-top: 4% !important;
     color: white;
     text-decoration: none;
     border-radius: 5px !important;
     background-color: #938994;
     padding: 1%;
-    padding-bottom: 2%;
-    margin-bottom: 10%;
+    padding-bottom: 2% !important;
+    margin-bottom: 0% !important;
     position: relative !important;
     left: auto !important;
     top: auto !important;
     transform: rotate(0deg) !important;
     transition: 0.2s ease-in;
     animation: none !important;
-    width: 40% !important;
+    width: 30% !important;
+  }
+  #resume-p{
+    display: inline-block;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    margin-left: -20px;
+  }
+  #resume-icon{
+    transform: none !important;
+    position: absolute;
+    right: 5%;
+    width: 30px !important;
   }
 }
 
@@ -498,11 +510,15 @@ label{
   padding-left: 0;
 }
 
+.ytp-icon.ytp-icon-watermark{
+  display: none;
+}
+
 .FooterDiv{
   position: absolute;
   background-color: #222428;
   padding-top: 3%;
-  padding-bottom: 3%;
+  padding-bottom: 5%;
   width: 100%;
   height: auto;
   z-index: -1;
@@ -600,13 +616,14 @@ textarea{
   height: 150px;
   line-height: 150px;
   margin: 100px auto;
-
   box-sizing: border-box;
   text-align: center;
   z-index: 0;
   color: black;
   text-transform: uppercase;
 }
+
+
 
 .loader:before,
 .loader:after {
@@ -650,7 +667,16 @@ textarea{
   }
 }
 
+@media (max-width: 800px){
+  .loader{
+    left: 38%;
+  }
+}
+
 @media (max-width: 500px){
+  .loader{
+    left: 30%;
+  }
   .video{
     width: 100% !important;
     height: 300px !important;
@@ -694,16 +720,16 @@ textarea{
 #resume-download{
   z-index: 1000;
   display: none;
-  font-size: 1.5vw;
+  font-size: 20px;
   color: white;
   text-decoration: none;
   border-radius: 10px;
   background-color: #938994;
-  padding: 1%;
-  padding-bottom: 2%;
-  margin-bottom: 10%;
+  padding: 10px;
+  padding-bottom: 25px;
+  margin-bottom: 10px;
   position: fixed;
-  left: -6.5%;
+  left: -85px;
   top: 40%;
   transform: rotate(90deg);
   transition: 0.2s ease-in;
@@ -713,7 +739,12 @@ textarea{
 }
 
 #resume-download:hover{
-  transform: rotate(90deg) translateY(-10%);
+  transform: rotate(90deg) translateY(-50%);
+}
+
+#resume-icon{
+  transform: rotate(270deg);
+  width: 80px;
 }
 
 @keyframes social-icons {
@@ -728,7 +759,7 @@ textarea{
 
 @keyframes resume-icon {
   0%{
-    transform: rotate(90deg) translateY(100%);
+    transform: rotate(90deg) translateY(50%);
     opacity: 0;
   }100%{
     transform: rotate(90deg) translateY(0%);

@@ -48,7 +48,7 @@ class App extends Component {
       <div className="App">
       <img className="BannerImg" src={require('./images/BWParkBanner.jpg')} alt="BannerImg"/>
         { this.props.mobileScreen === false
-          ? <div><Nav /><a id="resume-download" href={require('./docs/Matthew_Croak_Tech_Resume.pdf')} download>Download Resume</a><Footer /></div>
+          ? <div><Nav /><a id="resume-download" href={require('./docs/Matthew_Croak_Tech_Resume.pdf')} download>Resume<br/><img id="resume-icon" src={require('./images/resume-icon.png')} alt="resume-icon"/> </a><Footer /></div>
           : <div><MobileNavBar /><MobileFooter /></div>
         }
         {this.props.hamburgerClicked === false
