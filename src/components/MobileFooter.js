@@ -78,7 +78,7 @@ class MobileFooter extends Component {
       <div>
       <div className="FooterDiv">
       <div className="footContainer">
-      <a id="resume-download" href={require('../docs/Matthew_Croak_Tech_Resume.pdf')} download><p id="resume-p">Resume</p><img id="resume-icon" src={require('../images/resume-icon.png')} alt="resume-icon"/></a>
+      <a id="resume-download" href={require('../docs/Matthew_Croak_Tech_Resume.pdf')} download><img id="resume-icon" src={require('../images/resume-icon.png')} alt="resume-icon"/><p id="resume-p">Resume</p></a>
             <div className="footerList">
             <h3 id="connect">Connect</h3>
               <a href="https://www.instagram.com/m_c_media/"><img className="footer_social" src={require('../images/insta-footer.png')} alt="Footer Insta"/></a>
