@@ -80,9 +80,9 @@ checkIframeLoaded = () => {
       if (this.props.demo.live_url === null){
         return <p>Site: No Site</p>
       } else if (this.props.demo.live_url) {
-        return <p>Site: <a style={{color: 'black'}} href={this.props.demo.live_url}>{this.props.demo.live_url}</a></p>
+        return <p>Site: <a target="_blank" style={{color: 'black'}} href={this.props.demo.live_url}>{this.props.demo.live_url}</a></p>
       } else if (this.props.demo.website){
-        return <p>Site: <a style={{color: 'black'}} href={this.props.demo.website}>{this.props.demo.website}</a></p>
+        return <p>Site: <a target="_blank" style={{color: 'black'}} href={this.props.demo.website}>{this.props.demo.website}</a></p>
       } else {
         return null
       }

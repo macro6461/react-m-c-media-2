@@ -29,7 +29,7 @@ class DropMenu extends Component {
   }
 
   render() {
-  
+
     return (
       (this.props.hovered === false
         ? null
